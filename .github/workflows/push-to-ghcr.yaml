@@ -8,17 +8,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-     - uses: actions/checkout@v3
+     - uses: actions/checkout@v4
         
      - name: Log in to the Container registry
-       uses: docker/login-action@ec9cdf07d570632daeb912f5b2099cb9ec1d01e6
+       uses: docker/login-action@327cd5a69de6c009b9ce71bce8395f28e651bf99
        with:
          registry: ghcr.io
          username: ${{ github.actor }}
          password: ${{ secrets.GITHUB_TOKEN }}
          
      - name: Build and push Docker image
-       uses: docker/build-push-action@v4
+       uses: docker/build-push-action@v6
        with:
          context: .
          push: true
